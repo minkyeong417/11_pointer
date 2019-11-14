@@ -5,18 +5,16 @@
 
 int main(int argc, char *argv[]) {
 		
-	char buffer[8];
-	double *pd;
-	int *pi;
+	int i=100;//i=100
+	int *p=&i;//p point i
+	int **q=&p;//q point q
 	
-	pd=(double *)buffer;
-	*pd=3.14;
-	printf("%f\n",*(double*)buffer);
+	*p=200;//i=200
+	printf("i=%d,*p=%d,**q=%d\n",i,*p,**q);//i=200 *p=i=200 *(*q)=*q=i=200
 	
-	pi=(int *)buffer;
-	*pi=123;
-	*(pi+1)=456;
-	printf("%d %d\n",*((int*)buffer+1));
-		
+	**q=300;
+	printf("i=%d,*p=%d,**q=%d\n",i,*p,**q);
+	
+	
 	return 0;
 }
